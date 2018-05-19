@@ -1,2 +1,5 @@
 hangmanwebapp.iml
 .idea
+/target/
+.classpath
+.project
