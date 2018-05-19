@@ -3,13 +3,14 @@ package database;
 import model.Score;
 import model.User;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface ScoreDAO {
 
-    boolean addScore(Score score);
-    Score getScoreById(int id);
-    Score getScoreByUser(User user);
-    ArrayList<Score> getTopScores();
+    boolean addScore(Score score) throws SQLException;
+    Score getScoreById(int id) throws SQLException;
+    Score getScoreByUser(User user) throws SQLException;
+    ArrayList<Score> getTopScores() throws SQLException;
 
 }
