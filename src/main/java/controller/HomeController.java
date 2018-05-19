@@ -1,4 +1,7 @@
 package controller;
 
-public class HomeController {
+public class HomeController extends HttpServlet{
+
+
+
 }
