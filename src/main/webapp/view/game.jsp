@@ -16,25 +16,25 @@
 	</head>
 	<body>
 		<div class="header">
-			
+
 		</div>
 		<div class="wrapper">
-			
-			
+
+
 			<img src="img/Gallow1.png" alt="No mistakes">
 
 			<div class="form-group">
-				<label for="email">Insert word or letter:</label>
-				<input type="email" class="form-control" id="letter">
+				<label for="word">Insert word or letter:</label>
+				<input type="word" class="form-control" id="letter">
 			</div>
 			<div class="form-group">
 				<h3>Solution:</h3>
 				<h3>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</h3>
 				<h4>Used Letters:</h4>
 				<h3>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</h3>
-				
+
 			</div>
-			
+
 		</button>
 
 	</form>
