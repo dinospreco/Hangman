@@ -11,21 +11,26 @@ public class UserDAOImpl implements UserDAO {
 	Connection connection = ConnectionManager.getInstance().getConnection();
 
 	@Override
-	public boolean addUser(User user) throws SQLException {
-		String query = "Insert into Users (userId,username,password) values (? ? ?  ) ";
-		User user1 = new User();
+	public boolean addUser(User user) {
+		String query = "Insert into users (username,passhash) values (?, ?) ";
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
-			statement.setInt(1, user1.getUserId());
-			statement.setString(2, user1.getUsername());
-			statement.setString(3, user1.getPasswrod());
-			statement.executeUpdate();
+			statement.setString(1, user.getUsername());
+			statement.setString(2, user.getPasswrod());
+
+			if(statement.executeUpdate() == 1) {
+				return true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
 		}
 		return false;
 	}
 
 	@Override
-	public User getUserById(int id) throws SQLException {
-		String query = "Select * from Users where userId=?";
+	public User getUserById(int id){
+		String query = "Select * from users where userId=?";
 		ResultSet rs = null;
 		User user = new User();
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -34,22 +39,26 @@ public class UserDAOImpl implements UserDAO {
 			rs = statement.executeQuery();
 
 			if (rs.next()) {
-
 				user.setUserId(rs.getInt("userId"));
 				user.setUsername(rs.getString("username"));
-				user.setPasswrod(rs.getString("password"));
+				user.setPasswrod(rs.getString("passhash"));
 				rs.close();
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
 		}
+
 		return user;
 	}
 
 	@Override
-	public User getUserByUsername(String username) throws SQLException {
+	public User getUserByUsername(String username) {
 
-		String query = "Select * from Users where username=?";
+		String query = "Select * from users where username=?";
 		ResultSet rs = null;
 		User user = new User();
+
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			statement.setString(1, username);
 
@@ -59,9 +68,12 @@ public class UserDAOImpl implements UserDAO {
 
 				user.setUserId(rs.getInt("userId"));
 				user.setUsername(rs.getString("username"));
-				user.setPasswrod(rs.getString("password"));
+				user.setPasswrod(rs.getString("passhash"));
 				rs.close();
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
 		}
 		return user;
 

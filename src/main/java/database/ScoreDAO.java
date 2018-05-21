@@ -10,7 +10,7 @@ public interface ScoreDAO {
 
     boolean addScore(Score score) throws SQLException;
     Score getScoreById(int id) throws SQLException;
-    Score getScoreByUser(User user) throws SQLException;
+    ArrayList<Score> getScoreByUser(User user) throws SQLException;
     ArrayList<Score> getTopScores() throws SQLException;
 
 }
