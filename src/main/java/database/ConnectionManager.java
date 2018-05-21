@@ -21,14 +21,14 @@ public class ConnectionManager {
 		if (instance == null) {
 			instance = new ConnectionManager();
 		}
-		System.out.println("Dao Instancu");
+//		System.out.println("Dao Instancu");
 		return instance;
 	}
 
 	private boolean openConnection() {
 		try {
 			connection = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-			System.out.println("Otvorio konekciju");
+//			System.out.println("Otvorio konekciju");
 			return true;
 		} catch (SQLException e) {
 			System.err.println(e);
@@ -38,8 +38,7 @@ public class ConnectionManager {
 	public Connection getConnection() {
 		if (connection == null) {
 			if (openConnection()) {
-			//	System.out.println("Konekcija o");
-				System.out.println("Vratio konekciju");
+//				System.out.println("Vratio konekciju");
 				return connection;
 			} else {
 				return null;

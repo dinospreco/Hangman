@@ -1,6 +1,5 @@
 package controller;
 
-<<<<<<< HEAD
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,8 +26,4 @@ public class HomeController extends HttpServlet {
         //Ovdje redirekta sve na Login controller.
 
     }
-=======
-public class HomeController {
-
->>>>>>> ea53135d7d5696dda33f8e7c7862fc63fec0b803
 }
