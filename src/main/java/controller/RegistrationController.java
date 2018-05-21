@@ -1,4 +1,9 @@
 package controller;
 
-public class RegistrationController {
+import javax.servlet.http.HttpServlet;
+
+public class RegistrationController extends HttpServlet {
+
+
+
 }

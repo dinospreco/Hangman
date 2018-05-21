@@ -11,6 +11,7 @@
 </div>
 <div class="wrapper">
     <h1>Registration</h1>
+    <form method="post">
     <div class="form-group">
         <label for="username">Enter username:</label>
         <input type="email" class="form-control" id="username">
