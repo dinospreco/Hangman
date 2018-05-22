@@ -4,6 +4,26 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>AdminController</servlet-name>
+  	<display-name>AdminController</display-name>
+  	<description></description>
+  	<servlet-class>controller.AdminController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SuperUserController</servlet-name>
+  	<display-name>SuperUserController</display-name>
+  	<description></description>
+  	<servlet-class>controller.SuperUserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminController</servlet-name>
+  	<url-pattern>/AdminController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SuperUserController</servlet-name>
+  	<url-pattern>/SuperUserController</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>view/home.jsp</welcome-file>
