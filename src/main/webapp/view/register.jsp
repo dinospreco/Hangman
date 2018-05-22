@@ -12,13 +12,15 @@
 		
 			<div class="wrapper">
 				<h1>Registration</h1>
+
+				<form action="register" method="post">
 				<div class="form-group">
-					<label for="user">Enter username:</label>
-					<input type="user" class="form-control" id="username">
+					<label for="username">Enter username:</label>
+					<input type="user" class="form-control" id="username" name="username">
 				</div>
 				<div class="form-group">
-					<label for="pwd">Enter password:</label>
-					<input type="password" class="form-control" id="password">
+					<label for="password">Enter password:</label>
+					<input type="password" class="form-control" id="password" name="password">
 				</div>
 	  		   <a href="profile.html" class="btn btn-info" role="button">Sign in</a>
 				<a href="home.html" class="btn btn-info" role="button">Back</a>
