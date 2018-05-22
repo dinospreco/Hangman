@@ -23,7 +23,7 @@
                     <label for="pwd">Password:</label>
                     <input type="password" class="form-control" id="pwd">
                 </div>
-                <a href="profile.html" class="btn btn-info" role="button">Log in</a>
+                <a href="/login" class="btn btn-info" role="button">Log in</a>
                 <a href="/registration" class="btn btn-info" role="button">Register</a>
             </form>
         </div>

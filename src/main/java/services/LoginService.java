@@ -3,26 +3,9 @@ package services;
 import database.UserDAO;
 import database.UserDAOImpl;
 import model.User;
-
 import java.sql.SQLException;
 
-
 public class LoginService {
-
-    private boolean isUserRegistered(User user) {
-
-        UserDAO userDAO = new UserDAOImpl();
-
-        try {
-            if (userDAO.getUserByUsername(user.getUsername()) != null) {
-                return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return false;
-    }
 
 
     public boolean login(User user) {
