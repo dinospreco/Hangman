@@ -1,15 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dino
-  Date: 5/19/2018
-  Time: 11:03 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<DOCTYPE !html>
+
+<!DOCTYPE html>
 	<html>
 	<head>
-		<title>Hangman BILD-IT Hackaton</title>
+		<title>Game</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel=

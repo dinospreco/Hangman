@@ -27,7 +27,6 @@
       <scope>test</scope>
     </dependency>
 
-
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -49,8 +48,6 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-
-
 
   </dependencies>
 
