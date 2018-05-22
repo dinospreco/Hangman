@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.User;
+import services.HashingHelperService;
 import services.RegistrationService;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class RegistrationController extends HttpServlet {
 		password=req.getParameter("password");
 		
 		RegistrationService rs=new RegistrationService();
+		String hassedPass=HashingHelperService.hashString(password);
 		boolean validUsername=rs.validateUsername(username);
 		boolean validPass=rs.validPassword(password);
     	
@@ -44,7 +46,7 @@ public class RegistrationController extends HttpServlet {
 			User user=new User();
 			
 			user.setUsername(username);
-			user.setPasswrod(password);
+			user.setPasswrod(hassedPass);
 			
 			if(rs.addUser(user)) {
 				RequestDispatcher success = req.getRequestDispatcher("/view/profile.jsp");
