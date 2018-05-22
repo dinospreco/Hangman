@@ -6,3 +6,7 @@ hangmanwebapp.iml
 .settings
 /bin
 /target
+.settings
+bin
+.project
+.classpath

@@ -1,7 +1,12 @@
 package services;
 
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import database.UserDAO;
+import database.UserDAOImpl;
+import model.User;
 
 public class RegistrationService {
 
@@ -18,5 +23,29 @@ public class RegistrationService {
             return false;
         }
     }
+    
+    public boolean validateUsername(String username) {
+    	
+		UserDAO userDAO=new UserDAOImpl();
+		User userCheck=null;
+		try {
+			userCheck = userDAO.getUserByUsername(username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(userCheck==null) {
+			return true;
+		}else {
+			return false;
+		}
+    }
 
+	public boolean addUser(User user)  {
+			
+			UserDAOImpl userDAO=new UserDAOImpl();
+			return userDAO.addUser(user);
+				
+	}
+    
 }
