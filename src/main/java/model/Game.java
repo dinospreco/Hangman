@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Game {
@@ -7,8 +8,9 @@ public class Game {
     private int gameId;
     private User user;
     private Score score;
-    private String word;
+    private Word word;
     private int misses;
+    private ArrayList<Character> usedLetters;
 
     public int getGameId() {
         return gameId;
@@ -34,11 +36,11 @@ public class Game {
         this.score = score;
     }
 
-    public String getWord() {
+    public Word getWord() {
         return word;
     }
 
-    public void setWord(String word) {
+    public void setWord(Word word) {
         this.word = word;
     }
 
@@ -48,6 +50,14 @@ public class Game {
 
     public void setMisses(int misses) {
         this.misses = misses;
+    }
+
+    public ArrayList<Character> getUsedLetters() {
+        return usedLetters;
+    }
+
+    public void setUsedLetters(ArrayList<Character> usedLetters) {
+        this.usedLetters = usedLetters;
     }
 
     @Override
