@@ -13,7 +13,7 @@ public class RegistrationController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/registration.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/register.jsp");
         requestDispatcher.forward(req,resp);
     }
 

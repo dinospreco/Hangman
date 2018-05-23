@@ -22,6 +22,12 @@ public class LoginController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		   RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/profile.jsp");
+	       requestDispatcher.forward(req,resp);
+	}
+	
+	@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String username = req.getParameter("username");
