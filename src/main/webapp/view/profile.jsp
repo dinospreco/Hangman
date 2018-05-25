@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="model.User" %>
 
 <!DOCTYPE html>
 	<html>
@@ -11,7 +12,7 @@
 	<body>
 		<div class="wrapper">
 			<h1>Welcome</h1>
-			<h3>Username</h3>
+			<h3><%=request.getAttribute("username")%></h3>
 
 			<div class="score">
 			<table align="center" color="white">
@@ -34,9 +35,8 @@
 			</tr>
 			</table>
 		</div>
-			
-			
-			<a href="game.html" class="btn btn-info" role="button">New game</a>
+
+			<a href="/newGame" class="btn btn-info" role="button">New game</a>
 			<a href="scoreboard.html" class="btn btn-info" role="button">Scoreboard</a>
 		</button>
 		</div>

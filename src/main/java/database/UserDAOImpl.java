@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.User;
+import services.HashingHelperService;
 
 public class UserDAOImpl implements UserDAO {
 	Connection connection = ConnectionManager.getInstance().getConnection();

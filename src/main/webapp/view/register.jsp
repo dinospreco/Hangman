@@ -13,7 +13,7 @@
 			<div class="wrapper">
 				<h1>Registration</h1>
 
-				<form action="register" method="post">
+				<form action="/registration" method="post">
 				<div class="form-group">
 					<label for="username">Enter username:</label>
 					<input type="user" class="form-control" id="username" name="username">
@@ -21,9 +21,10 @@
 				<div class="form-group">
 					<label for="password">Enter password:</label>
 					<input type="password" class="form-control" id="password" name="password">
+					<input type="submit" class="btn btn-info" value="Register">
 				</div>
-	  		   <a href="profile.html" class="btn btn-info" role="button">Sign in</a>
-				<a href="home.html" class="btn btn-info" role="button">Back</a>
+
+				<a href="/" class="btn btn-info" role="button">Home</a>
 
 
 			</form>

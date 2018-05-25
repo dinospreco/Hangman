@@ -18,14 +18,30 @@ public class NewGameController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        User user = (User) session.getAttribute("user");
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            session = req.getSession();
+            User user = (User) session.getAttribute("user");
 
-        //TODO provjera jel se user logovo
+            if (user.getUsername() == null) {
+                resp.sendRedirect("/login");
+            }
+            else {
+                req.setAttribute("username", user.getUsername());
 
-        GameLogicService gameLogicService = new GameLogicService();
-        Game game = gameLogicService.gameInit(user);
-        session.setAttribute("game",game);
-        resp.sendRedirect("/game");
+                GameLogicService gameLogicService = new GameLogicService();
+                Game game = gameLogicService.gameInit(user);
+
+                session.setAttribute("game",game);
+
+                resp.sendRedirect("/game");
+
+            }
+        }
+        else {
+            resp.sendRedirect("/login");
+        }
+
+
     }
 }

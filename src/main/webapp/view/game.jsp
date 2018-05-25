@@ -15,23 +15,29 @@
 
 		</div>
 
-        <img src="/image">
+
 
 		<div class="wrapper">
+
+			<img src="/image">
 
             <div class="form-group">
 				<form method="post">
 					<label for="word">Insert word or letter:</label>
 					<input type="word" class="form-control" id="word" name="word">
-                    <div class="btn btn-info">Enter</div>
+                    <input type="submit" class="btn btn-info" value="Enter">
 				</form>
 			</div>
 			<div class="form-group">
 				<h3>Solution:</h3>
-				<h3>${solution}</h3>
-				<h4>Used Letters:</h4>
-				<h3>${usedLetters}</h3>
+				<h3><%=request.getAttribute("solution")%></h3>
+				<h3>Missed Letters:</h3>
+				<h3><%=request.getAttribute("usedLetters")%></h3>
+				<h3>Current Score: </h3>
+				<h3><%=request.getAttribute("score")%></h3>
 			</div>
+            <a href="/newGame" class="btn btn-info">New Game</a>
+            <a href="/profile" class="btn btn-info">Profile</a>
 
         </div>
 </body>

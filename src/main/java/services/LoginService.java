@@ -8,26 +8,27 @@ import java.sql.SQLException;
 public class LoginService {
 
 
-    public boolean login(User user) {
+    public User login(User user) {
         UserDAO userDAO = new UserDAOImpl();
 
         try {
             User checkUser = userDAO.getUserByUsername(user.getUsername());
+
             if (checkUser == null) {
-                return false;
+                return null;
             }
-            else if (HashingHelperService.hashString(checkUser.getPasswrod()).equals(HashingHelperService.hashString(user.getPasswrod()))) {
-                user = checkUser;
-                user.setPasswrod("");
-                return true;
+            else if (checkUser.getPasswrod().equals(HashingHelperService.hashString(user.getPasswrod()))) {
+                checkUser.setPasswrod("");
+                return checkUser;
             }
             else {
-                return false;
+                return null;
+
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 

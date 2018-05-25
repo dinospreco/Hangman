@@ -10,7 +10,8 @@ public class Game {
     private Score score;
     private Word word;
     private int misses;
-    private ArrayList<Character> usedLetters;
+    private String solutionPlaceholder;
+    private String usedLetters;
 
     public int getGameId() {
         return gameId;
@@ -52,30 +53,39 @@ public class Game {
         this.misses = misses;
     }
 
-    public ArrayList<Character> getUsedLetters() {
+    public String getUsedLetters() {
         return usedLetters;
     }
 
-    public void setUsedLetters(ArrayList<Character> usedLetters) {
+    public void setUsedLetters(String usedLetters) {
         this.usedLetters = usedLetters;
+    }
+
+    public String getSolutionPlaceholder() {
+        return solutionPlaceholder;
+    }
+
+    public void setSolutionPlaceholder(String solutionPlaceholder) {
+        this.solutionPlaceholder = solutionPlaceholder;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Game)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return getGameId() == game.getGameId() &&
-                getMisses() == game.getMisses() &&
-                Objects.equals(getUser(), game.getUser()) &&
-                Objects.equals(getScore(), game.getScore()) &&
-                Objects.equals(getWord(), game.getWord());
+        return gameId == game.gameId &&
+                misses == game.misses &&
+                Objects.equals(user, game.user) &&
+                Objects.equals(score, game.score) &&
+                Objects.equals(word, game.word) &&
+                Objects.equals(usedLetters, game.usedLetters);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getGameId(), getUser(), getScore(), getWord(), getMisses());
+        return Objects.hash(gameId, user, score, word, misses, usedLetters);
     }
 
     @Override
@@ -84,8 +94,9 @@ public class Game {
                 "gameId=" + gameId +
                 ", user=" + user +
                 ", score=" + score +
-                ", word='" + word + '\'' +
+                ", word=" + word +
                 ", misses=" + misses +
+                ", usedLetters='" + usedLetters + '\'' +
                 '}';
     }
 }

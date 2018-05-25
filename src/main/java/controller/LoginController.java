@@ -16,12 +16,12 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("view/home.jsp").forward(req,resp);
+    }
 
-	@Override
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String username = req.getParameter("username");
@@ -31,19 +31,18 @@ public class LoginController extends HttpServlet{
         user.setUsername(username);
         user.setPasswrod(password);
         
-        LoginService LG=new LoginService();
-        boolean logged=LG.login(user);
-        
-        if(logged) {
-        	
+        LoginService LG = new LoginService();
+//        boolean logged = LG.login(user);
+
+        if((user = LG.login(user)) != null) {
         	HttpSession session=req.getSession();
+        	user.setPasswrod("");
         	session.setAttribute("user",user);
-        	
-        	RequestDispatcher success=req.getRequestDispatcher("/view/profile.jsp");
-        	success.forward(req, resp);
+            resp.sendRedirect("/profile");
+
         }else {
-        	RequestDispatcher failure=req.getRequestDispatcher("/view/home.jsp");
-        	failure.forward(req, resp);
+            resp.sendRedirect("/");
+
         }
         
     }

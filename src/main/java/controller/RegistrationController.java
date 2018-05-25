@@ -16,11 +16,6 @@ import java.io.IOException;
 @WebServlet("/registration")
 public class RegistrationController extends HttpServlet {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/view/register.jsp").forward(req,resp);
@@ -35,29 +30,13 @@ public class RegistrationController extends HttpServlet {
 		username=req.getParameter("username");
 		password=req.getParameter("password");
 		
-		RegistrationService rs=new RegistrationService();
-		String hassedPass=HashingHelperService.hashString(password);
-		boolean validUsername=rs.validateUsername(username);
-		boolean validPass=rs.validPassword(password);
-    	
-		RequestDispatcher failure;
-		
-		if(validUsername && validPass) {
-			User user=new User();
-			
-			user.setUsername(username);
-			user.setPasswrod(hassedPass);
-			
-			if(rs.addUser(user)) {
-				RequestDispatcher success = req.getRequestDispatcher("/view/profile.jsp");
-				success.forward(req, resp);
-			}else {
-			failure = req.getRequestDispatcher("/view/register.jsp");
-			failure.forward(req, resp);
-			}
+		RegistrationService registrationService = new RegistrationService();
+		if (registrationService.registerUser(username,password)) {
+			req.getRequestDispatcher("view/registrationSucces.jsp").forward(req,resp);
 		}
-			failure = req.getRequestDispatcher("/view/register.jsp");
-			failure.forward(req, resp);
+		else {
+            req.getRequestDispatcher("view/registrationFaliure.jsp").forward(req,resp);
+        }
 
     }
     
