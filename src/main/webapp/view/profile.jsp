@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="model.User" %>
+<%@ page import="controller.ProfileController" %>
+<%@ page import="java.util.ArrayList" %>
 
 <!DOCTYPE html>
 	<html>
@@ -15,9 +17,10 @@
 			<h3><%=request.getAttribute("username")%></h3>
 
 			<div class="score">
+
 			<table align="center" color="white">
 				<th><h4>Last 5 games score: </h4></th>
-				<tr>
+                <tr>
 				<td>1 </td>
 				</tr>
 				<tr>

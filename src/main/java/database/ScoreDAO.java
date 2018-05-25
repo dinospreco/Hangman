@@ -12,5 +12,6 @@ public interface ScoreDAO {
     Score getScoreById(int id) throws SQLException;
     ArrayList<Score> getScoreByUser(User user) throws SQLException;
     ArrayList<Score> getTopScores() throws SQLException;
+    ArrayList<Score> getLastFiveScoresByUser(User user);
 
 }

@@ -76,6 +76,29 @@ public class ScoreDAOImpl implements ScoreDAO {
 	}
 
 	@Override
+	public ArrayList<Score> getLastFiveScoresByUser(User user) {
+		ArrayList<Score> scores = new ArrayList<Score>();
+        String query = "Select * from scores WHERE userId = ? order by scoreId DESC limit 5";
+		ResultSet rs = null;
+
+		try (PreparedStatement statement = connection.prepareStatement(query)) {
+			statement.setInt(1, user.getUserId());
+			rs = statement.executeQuery();
+
+			while (rs.next()) {
+				Score score = new Score();
+				score.setScoreId(rs.getInt("scoreId"));
+				score.setUserId(rs.getInt("userID"));
+				score.setScore(rs.getInt("score"));
+				scores.add(score);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return scores;
+	}
+
+	@Override
 	public ArrayList<Score> getTopScores() {
 		String query = "Select * from scores order by score DESC limit 10";
 		ArrayList<Score> scores = new ArrayList<>();
