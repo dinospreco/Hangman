@@ -17,40 +17,27 @@ public class GameController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
-        if (session != null) {
-            session = req.getSession();
-            User user = (User) session.getAttribute("user");
+        HttpSession session = req.getSession();
 
-            if (user.getUsername() == null || user == null) {
-                resp.sendRedirect("/login");
-            }
-            else {
-                Game game = (Game) session.getAttribute("game");
+        Game game = (Game) session.getAttribute("game");
 
-                if (game == null || game.getSolutionPlaceholder() == null) {
-                    resp.sendRedirect("/newGame");
-                }
-                else {
-                    String solution = "";
-                    for (int i = 0 ; i < game.getSolutionPlaceholder().length() ; i++) {
-                        solution = solution + " " + game.getSolutionPlaceholder().charAt(i);
-                    }
-
-                    GameLogicService gameLogicService = new GameLogicService();
-
-                    req.setAttribute("image", gameLogicService.picturePath(game));
-                    req.setAttribute("solution", solution);
-                    req.setAttribute("usedLetters", game.getUsedLetters());
-                    req.setAttribute("score", game.getScore().getScore());
-                    req.getRequestDispatcher("view/game.jsp").forward(req,resp);
-                }
-            }
+        if (game == null || game.getSolutionPlaceholder() == null) {
+            resp.sendRedirect("/newGame");
         }
         else {
-            resp.sendRedirect("/login");
-        }
+            String solution = "";
+            for (int i = 0 ; i < game.getSolutionPlaceholder().length() ; i++) {
+                solution = solution + " " + game.getSolutionPlaceholder().charAt(i);
+            }
 
+            GameLogicService gameLogicService = new GameLogicService();
+
+            req.setAttribute("image", gameLogicService.picturePath(game));
+            req.setAttribute("solution", solution);
+            req.setAttribute("usedLetters", game.getUsedLetters());
+            req.setAttribute("score", game.getScore().getScore());
+            req.getRequestDispatcher("view/game.jsp").forward(req,resp);
+        }
     }
 
     @Override
@@ -58,12 +45,9 @@ public class GameController extends HttpServlet {
         HttpSession session = req.getSession();
         GameLogicService gls = new GameLogicService();
 
+        //TODO Game Filter
         User user = (User) session.getAttribute("user");
         Game game = (Game) session.getAttribute("game");
-
-        if (game == null) {
-            resp.sendRedirect("/newGame");
-        }
 
         String guess = req.getParameter("word");
 

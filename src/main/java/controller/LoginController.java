@@ -1,6 +1,5 @@
 package controller;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,16 +31,18 @@ public class LoginController extends HttpServlet{
         user.setPasswrod(password);
 
         if (username.equals("admin")) {
+
+            //TODO Admin page login
             resp.sendRedirect("/");
         }
 
         LoginService LG = new LoginService();
-//        boolean logged = LG.login(user);
 
         if((user = LG.login(user)) != null) {
         	HttpSession session=req.getSession();
         	user.setPasswrod("");
         	session.setAttribute("user",user);
+
             resp.sendRedirect("/profile");
 
         }else {
