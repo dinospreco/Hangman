@@ -7,7 +7,7 @@
 		<title>Game</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-		<style><%@include file="style.css"%></style>
+        <link rel="stylesheet" type="text/css" href="/view/style.css">
 
 	</head>
 	<body>
@@ -19,12 +19,12 @@
 
 		<div class="wrapper">
 
-			<img src="/image">
+			<img src="${image}"/>
 
             <div class="form-group">
 				<form method="post">
 					<label for="word">Insert word or letter:</label>
-					<input type="word" class="form-control" id="word" name="word">
+					<input type="word" class="form-control" id="word" name="word" autofocus>
                     <input type="submit" class="btn btn-info" value="Enter">
 				</form>
 			</div>

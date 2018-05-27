@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Word;
 
-@WebServlet("/superuser")
+@WebServlet("/admin")
 public class SuperUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

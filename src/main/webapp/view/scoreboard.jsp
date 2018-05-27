@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="dto.ScoreBoardDTO" %>
 
 <!DOCTYPE html>
 	<html>
@@ -6,7 +8,7 @@
 		<title>Scoreboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-		<style><%@include file="style.css"%></style>
+		<link rel="stylesheet" type="text/css" href="/view/style.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -16,65 +18,21 @@
 				<th></th>
 				<th>Username</th>
 				<th>Score</th>
-				<tr>
-				<td>1 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>2 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>3 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>4 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>5 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>6 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>7 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>8 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>9 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-				<tr>
-				<td>10 </td>
-				<td> </td>
-				<td> </td>
-				</tr>
-			</tr>
+				<c:forEach items="${scores}" var="score" varStatus="status">
+					<tr>
+						<td>${status.index+1}</td>
+						<td>${score.getUsername()}</td>
+						<td>${score.getScore()}</td>
+					</tr>
+				</c:forEach>
+
 			</table>
 		</div>
 			
 			
-			<a href="game.html" class="btn btn-info" role="button">New game</a>
-			<a href="profile.html" class="btn btn-info" role="button">Back</a>
+			<a href="/game" class="btn btn-info" role="button">New game</a>
+			<a href="/profile" class="btn btn-info" role="button">Back</a>
 
-		</button>
 		</div>
 
 	</form>

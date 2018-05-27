@@ -22,20 +22,29 @@ public class GameController extends HttpServlet {
             session = req.getSession();
             User user = (User) session.getAttribute("user");
 
-            if (user.getUsername() == null) {
+            if (user.getUsername() == null || user == null) {
                 resp.sendRedirect("/login");
             }
             else {
                 Game game = (Game) session.getAttribute("game");
-                String solution = "";
-                for (int i = 0 ; i < game.getSolutionPlaceholder().length() ; i++) {
-                    solution = solution + " " + game.getSolutionPlaceholder().charAt(i);
-                }
 
-                req.setAttribute("solution", solution);
-                req.setAttribute("usedLetters", game.getUsedLetters());
-                req.setAttribute("score", game.getScore().getScore());
-                req.getRequestDispatcher("view/game.jsp").forward(req,resp);
+                if (game == null || game.getSolutionPlaceholder() == null) {
+                    resp.sendRedirect("/newGame");
+                }
+                else {
+                    String solution = "";
+                    for (int i = 0 ; i < game.getSolutionPlaceholder().length() ; i++) {
+                        solution = solution + " " + game.getSolutionPlaceholder().charAt(i);
+                    }
+
+                    GameLogicService gameLogicService = new GameLogicService();
+
+                    req.setAttribute("image", gameLogicService.picturePath(game));
+                    req.setAttribute("solution", solution);
+                    req.setAttribute("usedLetters", game.getUsedLetters());
+                    req.setAttribute("score", game.getScore().getScore());
+                    req.getRequestDispatcher("view/game.jsp").forward(req,resp);
+                }
             }
         }
         else {
@@ -80,6 +89,9 @@ public class GameController extends HttpServlet {
             for (int i = 0 ; i < game.getSolutionPlaceholder().length() ; i++) {
                 solution = solution + " " + game.getSolutionPlaceholder().charAt(i);
             }
+            GameLogicService gameLogicService = new GameLogicService();
+
+            req.setAttribute("image", gameLogicService.picturePath(game));
             req.setAttribute("score",game.getScore().getScore());
             req.setAttribute("solution", solution);
             req.setAttribute("usedLetters", game.getUsedLetters());

@@ -24,4 +24,9 @@ public class SuperUserService {
 
 	}
 
+	public boolean login(String password) {
+
+	    return  true;
+    }
+
 }

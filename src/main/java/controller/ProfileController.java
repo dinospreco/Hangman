@@ -19,16 +19,18 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
-        ScoreService scoreService = new ScoreService();
 
         if (session != null) {
             session = req.getSession();
             User user = (User) session.getAttribute("user");
 
-            if (user.getUsername() == null) {
+            if (user == null) {
                 resp.sendRedirect("/login");
             }
             else {
+                ScoreService scoreService = new ScoreService();
+                ArrayList<Score> scores = scoreService.getLastFiveScoresByUser(user);
+                req.setAttribute("scores", scores);
                 req.setAttribute("username", user.getUsername());
                 req.getRequestDispatcher("view/profile.jsp").forward(req,resp);
             }

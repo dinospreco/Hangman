@@ -31,7 +31,6 @@ public class NewGameController extends HttpServlet {
 
                 GameLogicService gameLogicService = new GameLogicService();
                 Game game = gameLogicService.gameInit(user);
-
                 session.setAttribute("game",game);
 
                 resp.sendRedirect("/game");

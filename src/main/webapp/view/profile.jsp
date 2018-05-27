@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="controller.ProfileController" %>
-<%@ page import="java.util.ArrayList" %>
+
+
 
 <!DOCTYPE html>
 	<html>
@@ -9,7 +9,7 @@
 		<title>User Profile</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-		<style><%@include file="style.css"%></style>
+        <link rel="stylesheet" type="text/css" href="/view/style.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -20,31 +20,18 @@
 
 			<table align="center" color="white">
 				<th><h4>Last 5 games score: </h4></th>
-                <tr>
-				<td>1 </td>
-				</tr>
-				<tr>
-				<td>2 </td>
-				</tr>
-				<tr>
-				<td>3 </td>
-				</tr>
-				<tr>
-				<td>4 </td>
-				</tr>
-				<tr>
-				<td>5 </td>
-				</tr>
-			</tr>
-			</table>
+				<c:forEach items="${scores}" var="score">
+					<tr>
+						<td>${score.getScore()}</td>
+					</tr>
+				</c:forEach>
+            </table>
 		</div>
 
 			<a href="/newGame" class="btn btn-info" role="button">New game</a>
-			<a href="scoreboard.html" class="btn btn-info" role="button">Scoreboard</a>
-		</button>
+			<a href="/scoreboard" class="btn btn-info" role="button">Scoreboard</a>
+            <a href="/logout" class="btn btn-info" role="button">Log Out</a>
 		</div>
-
-	</form>
 
 </div>
 </body>

@@ -30,7 +30,11 @@ public class LoginController extends HttpServlet{
         User user=new User();
         user.setUsername(username);
         user.setPasswrod(password);
-        
+
+        if (username.equals("admin")) {
+            resp.sendRedirect("/");
+        }
+
         LoginService LG = new LoginService();
 //        boolean logged = LG.login(user);
 
@@ -42,7 +46,6 @@ public class LoginController extends HttpServlet{
 
         }else {
             resp.sendRedirect("/");
-
         }
         
     }

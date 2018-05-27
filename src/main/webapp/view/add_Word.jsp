@@ -5,7 +5,7 @@
 			<title>Super user</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	<style><%@include file="style.css"%></style>
+			<link rel="stylesheet" type="text/css" href="/view/style.css">
 			</head>
 		<body>
 		
@@ -16,8 +16,8 @@
 					<input type="word" class="form-control" id="word">
 				</div>
 				<div class="form-group">
-					<label for="ctgr">Add category:</label>
-					<input type="category" class="form-control" id="category">
+					<label for="category">Add category:</label>
+					<input type="category" class="form-control" id="category" name="category">
 				</div>
 
 				 <a href="addWordSuccess.html" class="btn btn-info" role="button">Add Word</a>

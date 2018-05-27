@@ -1,5 +1,6 @@
 package database;
 
+import dto.ScoreBoardDTO;
 import model.Score;
 import model.User;
 
@@ -99,18 +100,17 @@ public class ScoreDAOImpl implements ScoreDAO {
 	}
 
 	@Override
-	public ArrayList<Score> getTopScores() {
-		String query = "Select * from scores order by score DESC limit 10";
-		ArrayList<Score> scores = new ArrayList<>();
+	public ArrayList<ScoreBoardDTO> getTopScores() {
+		String query = "SELECT users.username, scores.score FROM users JOIN scores ON users.userId = scores.userId ORDER BY score DESC limit 10";
+		ArrayList<ScoreBoardDTO> scores = new ArrayList<>();
 		ResultSet rs = null;
 
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			rs = statement.executeQuery();
 
 			while (rs.next()) {
-				Score score = new Score();
-				score.setScoreId(rs.getInt("scoreId"));
-				score.setUserId(rs.getInt("userId"));
+				ScoreBoardDTO score = new ScoreBoardDTO();
+				score.setUsername(rs.getString("username"));
 				score.setScore(rs.getInt("score"));
 				scores.add(score);
 			}
