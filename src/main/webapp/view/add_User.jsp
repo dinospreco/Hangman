@@ -11,16 +11,20 @@
 		<body>
 		
 			<div class="wrapper">
-				<h1>Add User Options:</h1>
+				<form method="post">
+				<h1>Add User:</h1>
 				<div class="form-group">
-					<label for="word">Insert Username:</label>
-					<input type="word" class="form-control" id="word">
+					<label for="username">Insert Username:</label>
+					<input type="word" class="form-control" id="username" name="username">
 				</div>
-				
+                    <div class="form-group">
+                        <label for="password">Insert Password:</label>
+                        <input type="word" class="form-control" id="password" name="password">
+                    </div>
 
-				 <a href="add_Success.html" class="btn btn-info" role="button">Add User</a>
-				<a href="superuser.html" class="btn btn-info" role="button">Back</a>
+                    <<input type="submit" class="btn btn-info" value="Add User">
 
+				<a href="/profile" class="btn btn-info" role="button">Profile</a>
 
 			</form>
 

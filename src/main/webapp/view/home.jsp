@@ -25,7 +25,6 @@
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <input type="submit" class="btn btn-info" value="Log in"/>
-                <%--<a href="/login" class="btn btn-info" role="button">Log in</a>--%>
             </form>
             <a href="/registration" class="btn btn-info" role="button">Register</a>
         </div>

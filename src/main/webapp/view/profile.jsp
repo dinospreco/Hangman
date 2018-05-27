@@ -31,6 +31,13 @@
 			<a href="/newGame" class="btn btn-info" role="button">New game</a>
 			<a href="/scoreboard" class="btn btn-info" role="button">Scoreboard</a>
             <a href="/logout" class="btn btn-info" role="button">Log Out</a>
+
+            <c:if test="${username == 'admin'}">
+                <a href="/admin/addWord" class="btn btn-info" role="button">Add Word</a>
+                <a href="/admin/addUser" class="btn btn-info" role="button">Add User</a>
+                <a href="/admin/deleteUser" class="btn btn-info" role="button">Delete User</a>
+            </c:if>
+
 		</div>
 
 </div>

@@ -11,25 +11,20 @@ public class LoginService {
     public User login(User user) {
         UserDAO userDAO = new UserDAOImpl();
 
-        try {
-            User checkUser = userDAO.getUserByUsername(user.getUsername());
+        User checkUser = userDAO.getUserByUsername(user.getUsername());
 
-            if (checkUser == null) {
-                return null;
-            }
-            else if (checkUser.getPasswrod().equals(HashingHelperService.hashString(user.getPasswrod()))) {
-                checkUser.setPasswrod("");
-                return checkUser;
-            }
-            else {
-                return null;
-
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (checkUser == null) {
             return null;
         }
+        else if (checkUser.getPasswrod().equals(HashingHelperService.hashString(user.getPasswrod()))) {
+            checkUser.setPasswrod("");
+            return checkUser;
+        }
+        else {
+            return null;
+
+        }
+
     }
 
 }

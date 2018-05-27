@@ -11,18 +11,17 @@
 		<body>
 		
 			<div class="wrapper">
+                <form method="post">
 				<h1>Delete User Options:</h1>
 				<div class="form-group">
-					<label for="word">Insert Username you want to remove:</label>
-					<input type="word" class="form-control" id="word">
+					<label for="username">Insert Username you want to remove:</label>
+					<input type="word" class="form-control" id="username" name="username">
 				</div>
-				
-
-				 <a href="remove_Success.html" class="btn btn-info" role="button">Delete User</a>
-				<a href="superuser.html" class="btn btn-info" role="button">Back</a>
-
+				<input type="submit" class="btn btn-info" value="Delete User">
 
 			</form>
+
+				<a href="/profile" class="btn btn-info" role="button">Profile</a>
 
 		</div>
 	</body>

@@ -30,12 +30,6 @@ public class LoginController extends HttpServlet{
         user.setUsername(username);
         user.setPasswrod(password);
 
-        if (username.equals("admin")) {
-
-            //TODO Admin page login
-            resp.sendRedirect("/");
-        }
-
         LoginService LG = new LoginService();
 
         if((user = LG.login(user)) != null) {

@@ -13,7 +13,7 @@
 			<div class="wrapper">
 				<h1>User added successfully</h1>
 				
-				<a href="superuser.html" class="btn btn-info" role="button">Back</a>
+				<a href="/profile" class="btn btn-info" role="button">Profile</a>
 
 		</div>
 	</body>

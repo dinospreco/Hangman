@@ -18,7 +18,6 @@ public class ProfileController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("ProfileContrller");
 
         HttpSession session = req.getSession();
         ScoreService scoreService = new ScoreService();

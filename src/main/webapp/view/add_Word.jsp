@@ -10,22 +10,25 @@
 		<body>
 		
 			<div class="wrapper">
-				<h1>Super User Options:</h1>
-				<div class="form-group">
-					<label for="word">Add word:</label>
-					<input type="word" class="form-control" id="word">
-				</div>
-				<div class="form-group">
-					<label for="category">Add category:</label>
-					<input type="category" class="form-control" id="category" name="category">
-				</div>
+				<h1>Add Word</h1>
 
-				 <a href="addWordSuccess.html" class="btn btn-info" role="button">Add Word</a>
-				<a href="superuser.html" class="btn btn-info" role="button">Back</a>
+				<form method="post">
 
+                    <div class="form-group">
+                        <label for="word">Add word:</label>
+                        <input type="word" class="form-control" id="word" name="word">
+                    </div>
 
-			</form>
+                    <div class="form-group">
+                        <label for="category">Add category:</label>
+                        <input type="category" class="form-control" id="category" name="category">
+                    </div>
 
+                    <input type="submit" class="btn btn-info" value="Add Word"/>
+
+			    </form>
+
+                <a href="/profile" class="btn btn-info" role="button">Profile</a>
 		</div>
 	</body>
 	</html>

@@ -35,6 +35,8 @@
 				<h3><%=request.getAttribute("usedLetters")%></h3>
 				<h3>Current Score: </h3>
 				<h3><%=request.getAttribute("score")%></h3>
+                <h3>Category:</h3>
+                <h3>${category}</h3>
 			</div>
             <a href="/newGame" class="btn btn-info">New Game</a>
             <a href="/profile" class="btn btn-info">Profile</a>

@@ -6,9 +6,10 @@ import model.User;
 
 public interface UserDAO {
 
-    boolean addUser(User user) throws SQLException;
-    User getUserById(int id) throws SQLException;
-    User getUserByUsername(String username) throws SQLException;
+    boolean addUser(User user);
+    User getUserById(int id);
+    User getUserByUsername(String username);
+    boolean deleteUser(User user);
 
 
 }

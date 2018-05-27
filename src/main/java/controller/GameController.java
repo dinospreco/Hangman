@@ -36,6 +36,8 @@ public class GameController extends HttpServlet {
             req.setAttribute("solution", solution);
             req.setAttribute("usedLetters", game.getUsedLetters());
             req.setAttribute("score", game.getScore().getScore());
+            req.setAttribute("category", game.getWord().getCategory());
+
             req.getRequestDispatcher("view/game.jsp").forward(req,resp);
         }
     }

@@ -28,11 +28,9 @@ public class RegistrationService {
     	
 		UserDAO userDAO=new UserDAOImpl();
 		User userCheck=null;
-		try {
-			userCheck = userDAO.getUserByUsername(username);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
+		userCheck = userDAO.getUserByUsername(username);
+
 		
 		if(userCheck.getUsername()==null) {
 			return true;
