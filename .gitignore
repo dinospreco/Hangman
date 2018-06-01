@@ -1,0 +1,12 @@
+hangmanwebapp.iml
+.idea
+/target/
+.classpath
+.project
+.settings
+/bin
+/target
+.settings
+bin
+.project
+.classpath
